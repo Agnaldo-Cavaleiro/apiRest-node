@@ -15,13 +15,13 @@ jobs:
   test:
     uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/test-unitarios.yml@v1.0.0
     with:
-      node-version: ${{env.NODE_VERSION}}
+      node-version: $NODE_VERSION
 
   build:
     needs: test
     uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/build.yml@v1.0.0
     with:
-      node-version: ${{env.NODE_VERSION}}
+      node-version: $NODE_VERSION
 
   upload-artifact:
     needs: build
