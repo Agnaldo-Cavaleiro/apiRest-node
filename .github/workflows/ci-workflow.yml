@@ -8,22 +8,24 @@ on:
   # pull_request:
   #   branches:
   #     - main
+env:
+  NODE_VERSION:'18.x'
 
 jobs:
   test:
-    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/test-unitarios.yml@main
+    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/test-unitarios.yml@v1.0.0
     with:
-      node-version: '18.x'
+      node-version: ${{env.NODE_VERSION}}
 
   build:
     needs: test
-    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/build.yml@main
+    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/build.yml@v1.0.0
     with:
-      node-version: '18.x'
+      node-version: ${{env.NODE_VERSION}}
 
   upload-artifact:
     needs: build
-    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/upload-artifact.yml@main
+    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/upload-artifact.yml@v1.0.0
     with:
       artifact-name: 'node-app-artifacts'
       artifact-path: '.' # Adjust to 'dist' if you have a build output folder
