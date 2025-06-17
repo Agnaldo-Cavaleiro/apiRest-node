@@ -17,5 +17,5 @@ jobs:
     uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/node-reutilizable-ci.yml@main
     with:
       artifact-name: 'dist'
-      artifact-path: 'dist'
+      artifact-path: '.'
       node-version:  '18'
