@@ -2,11 +2,6 @@ name: Node.js CI Workflow
 
 on:
   workflow_dispatch:
-   inputs:
-      node_version:
-        description: 'Node.js version to use'
-        required: false
-        default: '18.x'
   # push:
   #   branches:
   #     - main
@@ -21,17 +16,6 @@ jobs:
   test:
     uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/test-unitarios.yml@main
     with:
-      node-version: ${{ github.event.inputs.node_version }}
-
-  build:
-    needs: test
-    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/build.yml@main
-    with:
-      node-version: ${{ github.event.inputs.node_version }}
-
-  upload-artifact:
-    needs: build
-    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/upload-artifact.yml@main
-    with:
       artifact-name: 'dist'
-      artifact-path: 'dist' # Adjust to 'dist' if you have a build output foldery
+      artifact-path: 'dist'
+      node_version:  '18.x'
