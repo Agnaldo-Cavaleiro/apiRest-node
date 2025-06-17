@@ -18,4 +18,4 @@ jobs:
     with:
       artifact-name: 'dist'
       artifact-path: 'dist'
-      node_version:  '18.x'
+      node_version:  '18'
