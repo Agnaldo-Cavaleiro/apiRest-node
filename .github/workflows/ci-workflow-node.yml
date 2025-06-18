@@ -1,0 +1,21 @@
+name: Node.js CI Workflow
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #   branches:
+  #     - main
+permissions:  
+  contents: read
+  security-events: write
+  
+jobs:
+  ci-workflow-node:
+    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/node-reutilizable-ci.yml@main
+    with:
+      artifact-name: 'dist'
+      artifact-path: '.'
+      node-version:  '18'
