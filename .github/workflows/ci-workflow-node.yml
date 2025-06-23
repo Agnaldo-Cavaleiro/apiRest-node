@@ -14,7 +14,7 @@ permissions:
   
 jobs:
   ci-workflow-node:
-    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/node-reutilizable-ci.yml@main
+    uses: Agnaldo-Cavaleiro/workflow-reutilizable-demo/.github/workflows/node/node-reutilizable-ci.yml@main
     with:
       artifact-name: 'dist'
       artifact-path: '.'
